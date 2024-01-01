@@ -18,35 +18,38 @@ public class CursedScrapPlugin : BaseUnityPlugin
     public void Awake()
     {
         var harmony = new Harmony(MyPluginInfo.PLUGIN_GUID);
-        harmony.PatchAll();
+        harmony.PatchAll(typeof(CursedPatches));
     }
 
-    [HarmonyPatch(typeof(RoundManager), nameof(RoundManager.Awake))]
-    [HarmonyPrefix]
-    public static void RemoveNotSillyScraps(RoundManager __instance)
+    class CursedPatches
     {
-        Logger.LogInfo("Doing the cursed scrap...");
+        [HarmonyPatch(typeof(RoundManager), nameof(RoundManager.Awake))]
+        [HarmonyPrefix]
+        public static void RemoveNotSillyScraps(RoundManager __instance)
+        {
+            Logger.LogInfo("Doing the cursed scrap...");
         
-        var moonThatCanSpawnAllSillyScraps = __instance.playersManager.levels.First(
-            level => level.PlanetName == "Experimentation"
-        );
+            var moonThatCanSpawnAllSillyScraps = __instance.playersManager.levels.First(
+                level => level.PlanetName == "Experimentation"
+            );
         
-        Logger.LogInfo($"Found experimentation moon {moonThatCanSpawnAllSillyScraps}");
+            Logger.LogInfo($"Found experimentation moon {moonThatCanSpawnAllSillyScraps}");
         
-        var sillyScraps = moonThatCanSpawnAllSillyScraps.spawnableScrap
-            .Where(scrap => scrap.spawnableItem.name is "Jar of pickles" or "Bottles")
-            .Select(scrap => {
-                scrap.rarity = scrap.spawnableItem.twoHanded ? 1 : 3;
-                return scrap;
-            })
-            .ToList();
+            var sillyScraps = moonThatCanSpawnAllSillyScraps.spawnableScrap
+                .Where(scrap => scrap.spawnableItem.name is "Jar of pickles" or "Bottles")
+                .Select(scrap => {
+                    scrap.rarity = scrap.spawnableItem.twoHanded ? 1 : 3;
+                    return scrap;
+                })
+                .ToList();
         
-        Logger.LogInfo($"Found {sillyScraps.Count} scraps");
+            Logger.LogInfo($"Found {sillyScraps.Count} scraps");
         
-        __instance.playersManager.levels.Do(
-            level => {
-                level.spawnableScrap = sillyScraps;
-            }
-        );
+            __instance.playersManager.levels.Do(
+                level => {
+                    level.spawnableScrap = sillyScraps;
+                }
+            );
+        }
     }
 }
