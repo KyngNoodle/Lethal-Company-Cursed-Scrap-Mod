@@ -21,7 +21,7 @@ public class CursedScrapPlugin : BaseUnityPlugin
         harmony.PatchAll();
     }
 
-    [HarmonyPatch(typeof(RoundManager), nameof(RoundManager.Start))]
+    [HarmonyPatch(typeof(RoundManager), nameof(RoundManager.Awake))]
     [HarmonyPrefix]
     public static void RemoveNotSillyScraps(RoundManager __instance)
     {
