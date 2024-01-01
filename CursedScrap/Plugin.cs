@@ -30,7 +30,7 @@ public class CursedScrapPlugin : BaseUnityPlugin
             Logger.LogInfo("Doing the cursed scrap...");
         
             var moonThatCanSpawnAllSillyScraps = __instance.playersManager.levels.First(
-                level => level.PlanetName == "Experimentation"
+                level => level.PlanetName == "41 Experimentation"
             );
         
             Logger.LogInfo($"Found experimentation moon {moonThatCanSpawnAllSillyScraps}");
