@@ -22,7 +22,7 @@ Create `CursedScrap/CursedScrap.csproj.user`:
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <LETHAL_COMPANY_DIR>C:/Program Files (x86)/Steam/steamapps/common/Lethal Company</LETHAL_COMPANY_DIR>
-        <TEST_PROFILE_DIR>$(APPDATA)\r2modmanPlus-local\LethalCompany\profiles\Test Enhancer - Local</TEST_PROFILE_DIR>
+        <TEST_PROFILE_DIR>$(APPDATA)\r2modmanPlus-local\LethalCompany\profiles\Test Cursed Scrap Mod</TEST_PROFILE_DIR>
         <PACK_THUNDERSTORE>true</PACK_THUNDERSTORE>
     </PropertyGroup>
 
