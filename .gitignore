@@ -1,0 +1,46 @@
+# Exclude everything
+/*
+
+# Specific includes
+## Docs
+!Docs/
+
+## Assets
+!assets/
+
+## Build System/Scripts
+!/.config/
+!NuGet.Config
+!Directory.Build.props
+!build.sh
+!build.ps1
+!build.cmd
+
+## Markdowns
+!*.md
+!LICENSE
+
+## important Git files
+!.gitmodules
+!.gitignore
+!.gitattributes
+!.git-blame-ignore-revs
+
+## GitHub specific
+!.github/
+
+## Dependencies folder
+!lib
+lib/*
+!lib/.gitkeep
+
+## Projects
+!CursedScrap.sln
+
+### Enhancer
+!CursedScrap/
+CursedScrap/[Bb]in/
+CursedScrap/[Oo]bj/
+
+# Explicit exceptions/ignores
+**.user
