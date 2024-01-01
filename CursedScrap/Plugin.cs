@@ -36,7 +36,7 @@ public class CursedScrapPlugin : BaseUnityPlugin
             Logger.LogInfo($"Found experimentation moon {moonThatCanSpawnAllSillyScraps}");
         
             var sillyScraps = moonThatCanSpawnAllSillyScraps.spawnableScrap
-                .Where(scrap => scrap.spawnableItem.name is "Jar of pickles" or "Bottles")
+                .Where(scrap => scrap.spawnableItem.itemName is "Jar of pickles" or "Bottles")
                 .Select(scrap => {
                     scrap.rarity = scrap.spawnableItem.twoHanded ? 1 : 3;
                     return scrap;
