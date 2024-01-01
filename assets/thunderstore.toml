@@ -24,7 +24,7 @@ source = "../CursedScrap/bin/com.github.kyngnoodle.cursed_scrap.dll"
 target = "/BepInEx/plugins/com.github.kyngnoodle.cursed_scrap.dll"
 
 [[build.copy]]
-source = "../Changelog.md"
+source = "../CHANGELOG.md"
 target = "CHANGELOG.md"
 
 [publish]
